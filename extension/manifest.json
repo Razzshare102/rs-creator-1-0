@@ -1,0 +1,47 @@
+{
+  "action": {
+    "default_icon": {
+      "128": "assets/icons/icon128.png",
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "RS Creator"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "content.js"
+      ],
+      "matches": [
+        "https://x.com/*",
+        "https://twitter.com/*"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "description": "RS Creator 1.0 \u2014 AI-powered X (Twitter) Creator Assistant. Generate replies and evaluate posts with manual approval; nothing auto-posts.",
+  "host_permissions": [
+    "https://x.com/*",
+    "https://twitter.com/*",
+    "https://*.supabase.co/*"
+  ],
+  "icons": {
+    "128": "assets/icons/icon128.png",
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png"
+  },
+  "manifest_version": 3,
+  "name": "RS Creator",
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "scripting",
+    "alarms"
+  ],
+  "version": "1.0.0"
+}

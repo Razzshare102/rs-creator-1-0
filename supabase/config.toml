@@ -1,0 +1,40 @@
+# RS Creator 1.0 — Supabase CLI config
+# Minimal config. Run `supabase init` output trimmed to what this project
+# needs; migrations live in ./migrations and functions in ./functions.
+
+project_id = "rs-creator-1-0"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+major_version = 15
+
+[studio]
+enabled = true
+port = 54323
+
+[functions.verify-license]
+verify_jwt = false
+
+[functions.ai-generate]
+verify_jwt = true
+
+[functions.ai-evaluate]
+verify_jwt = true
+
+[auth]
+enabled = true
+port = 9999
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["https://localhost:3000"]
+jwt_expiry = 3600
+enable_signup = true
+
+[auth.email]
+enable_confirmations = true

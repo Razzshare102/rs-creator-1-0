@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>RS Creator</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">RS</div>
+    <div>
+      <h1>RS Creator</h1>
+      <p class="subtitle">AI X Creator Assistant · v1.0.0</p>
+    </div>
+    <span id="statusPill" class="pill pill-off">Signed out</span>
+  </header>
+
+  <section id="loginSection" class="card">
+    <h2>Sign in</h2>
+    <p class="hint">Sign in with your Supabase account. Your password is never stored — only the session token is kept in local storage.</p>
+    <label>Email <input id="email" type="email" placeholder="you@example.com" autocomplete="email"></label>
+    <label>Password <input id="password" type="password" placeholder="Password" autocomplete="current-password"></label>
+    <div class="row">
+      <button id="signInBtn" class="btn btn-primary">Sign in</button>
+      <button id="signUpBtn" class="btn">Sign up</button>
+    </div>
+    <p id="loginError" class="error" hidden></p>
+  </section>
+
+  <section id="mainSection" class="card" hidden>
+    <div class="row between">
+      <div><strong id="userEmail"></strong><div id="licenseLine" class="muted">License: not verified</div></div>
+      <button id="signOutBtn" class="btn btn-small">Sign out</button>
+    </div>
+    <label>License key
+      <span class="row"><input id="licenseKey" type="text" placeholder="RS-XXXX-XXXX"><button id="verifyLicenseBtn" class="btn btn-small">Verify</button></span>
+    </label>
+    <p id="licenseError" class="error" hidden></p>
+
+    <h2>Quick actions</h2>
+    <div class="actions">
+      <button id="generateReplyBtn" class="btn btn-primary">Generate Reply for current post</button>
+      <button id="evaluateBtn" class="btn">Evaluate Post</button>
+      <button id="dashboardBtn" class="btn">Open Dashboard</button>
+    </div>
+    <div id="draftBox" class="draft" hidden>
+      <strong>Draft reply</strong>
+      <p id="draftText"></p>
+      <p id="draftQuality" class="muted"></p>
+      <div class="row">
+        <button id="copyDraftBtn" class="btn btn-small">Copy draft</button>
+        <button id="openReplyBtn" class="btn btn-small btn-primary">Open reply composer</button>
+      </div>
+      <p class="hint">Manual approval: the composer opens prefilled — you press Post on X. Nothing auto-posts.</p>
+    </div>
+    <p id="actionError" class="error" hidden></p>
+
+    <h2>Usage today</h2>
+    <p id="usageLine" class="muted">—</p>
+    <p id="countsLine" class="muted">—</p>
+
+    <h2>Workflows</h2>
+    <p id="workflowLine" class="muted">—</p>
+    <div class="row">
+      <button id="pauseBtn" class="btn btn-danger">Pause / Stop all workflows</button>
+      <button id="resumeBtn" class="btn">Resume</button>
+    </div>
+    <p class="hint">Workflows stop automatically on captcha, rate-limit, or warning detection. Support: <span id="ownerEmail"></span></p>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>
